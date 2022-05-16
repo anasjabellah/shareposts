@@ -15,11 +15,9 @@ class Users extends Controller{
                 'name' => trim($_POST['name']),
                 'email' => trim($_POST['email']),
                 'password' => trim($_POST['password']),
-                'confirm_password' => trim($_POST['confirm_password']),
                 'name_err' => '',
                 'email_err' => '',
                 'password_err' => '',
-                'confirm_password_err' => '' 
             ];
 
             //valide name
@@ -44,18 +42,10 @@ class Users extends Controller{
                 $data['password_err'] = 'Password must be atleast six characters';
             }
 
-            //validate confirm password
-            if(empty($data['confirm_password'])){
-                $data['confirm_password_err'] = 'Please confirm password';
-            }else{
-                if($data['password'] != $data['confirm_password'])
-                {
-                    $data['confirm_password_err'] = 'Password does not match';
-                }
-            }
+
 
             //make sure error are empty
-            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err']) && empty($data['password_confirm_err'])){
+            if(empty($data['name_err']) && empty($data['email_err']) && empty($data['password_err'])){
                 $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
                 if($this->userModel->register($data)){
                     flash('register_success', 'you are registerd you can login now');
@@ -70,11 +60,9 @@ class Users extends Controller{
                 'name' => '',
                 'email' => '',
                 'password' => '',
-                'confirm_password' => '',
                 'name_err' => '',
                 'email_err' => '',
                 'password_err' => '',
-                'confirm_password_err' => '' 
             ];
             //load view
             $this->view('users/register', $data);          
