@@ -33,7 +33,18 @@
                       <th></th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody>
+                  <?php foreach ($data['etudiants'] as $etudiant) : ?>
+                      <tr>
+                        <td><?php echo  $etudiant->nom_complet ;?></td>
+                        <td><?php echo  $etudiant->genre ;?></td>
+                        <td><?php echo  $etudiant->class ;?></td>
+                        <td><?php echo  $etudiant->parent ;?></td>
+                        <td><?php echo  $etudiant->adresse ;?></td>
+                        <td><?php echo  $etudiant->email ;?></td>
+                      </tr>
+                  <?php endforeach ;?>
+                  </tbody>
                 </table>
               </div>
             </div>
