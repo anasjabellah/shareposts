@@ -12,9 +12,9 @@ class Professeurs extends Controller {
     
     public function index(){
 
-        $Professeur = $this->ProfesseurModel->getEtudiants();
+        $Professeur = $this->ProfesseurModel->getProfesseurs();
         $data = [
-            'Professeur' => $Professeurs
+            'Professeurs' => $Professeur 
         ];
 
         $this->view('Professeur/index', $data);

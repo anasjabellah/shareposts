@@ -31,7 +31,18 @@
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
                     </tr>
                   </thead>
-                  <tbody></tbody>
+                  <tbody>
+                  <?php foreach ($data['Professeurs'] as $Professeur) : ?>
+                      <tr>
+                        <td><?php echo  $Professeur->nom_complet ;?></td>
+                        <td><?php echo  $Professeur->genre ;?></td>
+                        <td><?php echo  $Professeur->class ;?></td>
+                        <td><?php echo  $Professeur->matiere ;?></td>
+                        <td><?php echo  $Professeur->phone ;?></td>
+                      </tr>
+                  <?php endforeach ;?>
+
+                  </tbody>
                 </table>
               </div>
             </div>

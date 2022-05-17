@@ -1,7 +1,7 @@
 
 <?php 
 
-class Paresnt {
+class Pare {
 
     private $db;
     public function __construct()
